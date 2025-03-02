@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login || Produtos - Drogaria Moderna</title>
+    <link rel="stylesheet" href="/Login.css"> <!-- Conectando o arquivo CSS -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Login || Produtos - Drogaria Moderna</h1>
+
+        <!-- Alterei o action para a página de produtos -->
+        <form action="Produtos.html" method="GET" id="loginForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required autofocus autocomplete="email"
+                    placeholder="Digite seu email" aria-label="Digite seu email...">
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required autocomplete="current-password"
+                    placeholder="Digite sua senha" aria-label="Digite sua senha...">
+            </div>
+
+            <!-- Alterei o tipo do botão para 'submit' para que ele submeta o formulário -->
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+
+</html>
