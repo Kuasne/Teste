@@ -1,39 +1,44 @@
-/* Estilos gerais da página */
+/* Estilos gerais */
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
-  padding: 0;
   background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
 }
 
-h1 {
-  text-align: center;
+/* Cabeçalhos */
+h1,
+h2 {
   color: #333;
 }
 
-p {
-  text-align: center;
-  color: #555;
+h1 {
+  margin-top: 50px;
 }
 
-/* Estilos da tabela */
-table {
-  width: 100%;
-  border-collapse: collapse;
+h2 {
   margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Estilos de tabela */
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
 }
 
 th,
 td {
+  padding: 12px;
   border: 1px solid #ddd;
-  padding: 10px;
   text-align: center;
 }
 
 th {
   background-color: #4caf50;
   color: white;
-  cursor: pointer;
 }
 
 th:hover {
@@ -41,9 +46,49 @@ th:hover {
 }
 
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #f9f9f9;
 }
 
-tr:hover {
-  background-color: #ddd;
+/* Estilos para inputs e botões */
+input[type="text"],
+input[type="number"],
+#pesquisa {
+  width: 10%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+button[type="reset"] {
+  background-color: #f44336;
+  color: white;
+}
+
+button[type="button"] {
+  background-color: #008cba;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+  border-color: #4caf50;
 }
