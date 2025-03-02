@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto</title>
+
+    <link rel="stylesheet" href="/index.css"> <!-- Conectando o arquivo CSS -->
+
+</head>
+
+<body>
+    <h1>Controle de Produtos - Drogaria Moderna</h1>
+    <p>Aqui você encontra o controle de produtos em estoque da Drogaria Moderna.</p>
+
+    <!-- Adicione um formulário para adicionar novos produtos -->
+    <form id="formulario">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" required>
+
+        <label for="preco">Preço Unitário:</label>
+        <input type="number" id="preco" name="preco" required>
+
+        <button type="submit">Adicionar Produto</button>
+        <button type="reset">Limpar Formulário</button>
+        <!-- Adicione um botão para remover produtos da lista -->
+        <button type="button" id="remover">Remover Produto</button>
+        <!-- Adicione um botão para editar produtos -->
+        <button type="button" id="editar">Editar Produto</button>
+        <!-- Adicione um botão para exportar dados da lista para um arquivo.csv -->
+        <button type="button" id="exportarCSV">Exportar CSV</button>
+    </form>
+
+
+    <input type="text" id="pesquisa" onkeyup="pesquisarTabela()" placeholder="Pesquisar por nome ou ID...">
+
+    <h2>Produtos em Estoque:</h2>
+
+    <table id="tabela">
+        <thead>
+            <tr>
+                <th onclick="ordenarTabela(0)">ID</th>
+                <th onclick="ordenarTabela(1)">Nome</th>
+                <th onclick="ordenarTabela(2)">Quantidade</th>
+                <th>Preço Unitário</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Adicione os dados dos produtos aqui -->
+            <tr>
+                <td>1</td>
+                <td>Aspirina</td>
+                <td>1000</td>
+                <td>2.50</td>
+            </tr>
+            <!-- Adicione mais linhas para cada produto -->
+            <tr>
+                <td>2</td>
+                <td>Paracetamol</td>
+                <td>500</td>
+                <td>1.20</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td> Antibiótico</td>
+                <td>500</td>
+                <td>1.20</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Dorflex</td>
+                <td>300</td>
+                <td>1.00</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Ibuprofen</td>
+                <td>1500</td>
+                <td>1.50</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Acetaminofen</td>
+                <td>750</td>
+                <td>1.00</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Amoxicilina</td>
+                <td>200</td>
+                <td>2.00</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td> Penicilina</td>
+                <td>1000</td>
+                <td>1.50</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Cetirizina</td>
+                <td>250</td>
+                <td>0.80</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Certralina</td>
+                <td>300</td>
+                <td>1.00</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    function ordenarTabela(colunaIndex) {
+        let tabela = document.getElementById("tabela");
+        let linhas = Array.from(tabela.rows).slice(1);
+        let ordenada;
+
+        if (colunaIndex === 0 || colunaIndex === 2) {
+            ordenada = linhas.sort((a, b) => {
+                return parseInt(a.cells[colunaIndex].innerText) - parseInt(b.cells[colunaIndex].innerText);
+            });
+        } else {
+            ordenada = linhas.sort((a, b) => {
+                return a.cells[colunaIndex].innerText.localeCompare(b.cells[colunaIndex].innerText);
+            });
+        }
+        tabela.tBodies[0].append(...ordenada);
+    }
+</script>
+
+</html>
